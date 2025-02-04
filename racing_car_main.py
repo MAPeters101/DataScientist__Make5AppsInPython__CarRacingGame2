@@ -31,7 +31,7 @@ pygame.display.set_icon(GameIcon)
 
 life = 2
 Previous_Score = DodgeCars(Display)
-Previous_Score.Previous_Score()
+#Previous_Score.Previous_Score()
 
 EndGame = False
 GamePaused = False
@@ -47,7 +47,7 @@ def Entry_Screen():
                 sys.exit()
 
         Color_Tuple = (red,yellow,green)
-        Color = Color_Tuple(random.randint(0,2))
+        Color = Color_Tuple[random.randint(0,2)]
 
         display_message("Dodge Car",70,400,100,Color)
         display_message("Made By: Mark Peters",20,650,20,black)
@@ -57,6 +57,9 @@ def Entry_Screen():
         Interactive(250,450,20,green,l_green,"Start!")
         Interactive(400,450,20,yellow,l_yellow,"Ready!")
         Interactive(550,450,20,red,l_red,"Quit!")
+
+        pygame.display.update()
+        clock.tick(30)
 
 mousex,mousey = 0,0
 clickx,clicky = 0,0
@@ -106,10 +109,6 @@ def Interactive(centerx,centery,radius,icolor,acolor,message):
     else:
         Just_In.lights(centerx,centery,radius,icolor)
         display_message(message,20,centerx,centery+50,black)
-
-
-
-
 
 
 def display_message(text,size,x,y,color):
